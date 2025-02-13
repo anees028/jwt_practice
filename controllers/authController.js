@@ -13,9 +13,9 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    const {username, password} = req.body;
+    const {email, username, password} = req.body;
     try{
-        const user = await User.create({username, password})
+        const user = await User.create({email, username, password})
         res.status(201).json(user);
     }catch (error){
         res.status(400).send("User not created")
