@@ -6,14 +6,7 @@
 1. Install the node modules using **npm i** with in a project folder.  
 
 ## Sections 
-✔️ Summary and About me\
-✔️ Skills\
-✔️ Proficiency\
-✔️ Work Experience\
-✔️ Education Timeline\
-✔️ Open Source Projects Connected with Github\
-✔️ Contact me\
-✔️ Github Profile
+
 
 
 
