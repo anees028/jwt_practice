@@ -21,12 +21,6 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-// fire a function after user document saved to DB. 
-userSchema.post('save', function(doc, next) {
-    console.log('New user was created.',doc);
-    // next()
-})
-
 // fire a function before user document saved to DB.
 userSchema.pre('save', async function(next){
     const salt = await bcrypt.genSalt();

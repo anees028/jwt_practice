@@ -1,7 +1,10 @@
 // controller actions
 
 const User = require('../models/User')
+const jwt = require('jsonwebtoken');
+const dotenv = require("dotenv");
 
+dotenv.config()
 
 // Hanle errors
 const handleError = (err) => {
@@ -25,6 +28,17 @@ const handleError = (err) => {
     return errors
 }
 
+// Creating a time variable for expiry of token.
+const maxAge = 24 * 60 * 60;
+
+// Function for creating Token for authorization.
+const createToken = (id) => {
+    return jwt.sign({id}, process.env.SECRET_KEY, {
+        expiresIn: maxAge
+    })
+}
+
+
 
 module.exports.signup_get = (req, res) => {
     res.render('signup');
@@ -38,7 +52,12 @@ module.exports.signup_post = async (req, res) => {
     const {email, username, password} = req.body;
     try{
         const user = await User.create({email, username, password})
-        res.status(201).json(user);
+        
+        // Creating token and storing them in cookies for refference of future use.
+        const token = createToken(user._id);
+        res.cookie('jwt', token, {httpOnly: true, maxAge: maxAge*1000})
+
+        res.status(201).json({user: user._id});
     }catch (error){
         const errors = handleError(error);
         res.status(400).json({errors})
