@@ -4,6 +4,11 @@
 ### Start this project with a following commands.
 
 1. Install the node modules using **npm i** with in a project folder.  
+You can setup the mongodb first for setting up the database for storage and using within entire project.
+
+After setting up the db you can add your connection string from MongoDB in the .env file of this project to start and access the database.
+
+After that here are the steps for learning and setting up jwt (Json web token) with whole application.
 
 
 2. 
@@ -18,4 +23,21 @@
 1.1 Store the cookies here in the local storage.
 1.2 Install the cookies parser inorder to manage the cookies automatically.   (npm install cookie-parser)
 
+5. 
+## JWT Implementation -> 5th Branch
 
+In this branch here we are the following steps.
+ 1. Create the **Age of token** for storing in local storage and cookie. *(authController.js)*
+ 2. Create the **SECRET_KEY** in the .env file for further usage. *(.env)*
+ 3. Create method that takes the ID as reponse from db to generate & return the jwt.  *(authController.js)*.
+
+
+6.
+## Error Handling for Views -> 6th Branch
+
+In this branch here we are setting up the validation of form as it doesn't allowed to pass the wrong data to db. 
+All these validation is done in the 1 file **views/sign_up.ejs**.
+Also the css is applied to show visible errors while rendering. *(public/styles.css)*
+
+7.
+## Logging User by comparing jwt stored in db
