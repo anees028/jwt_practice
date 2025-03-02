@@ -42,3 +42,7 @@ Also the css is applied to show visible errors while rendering. *(public/styles.
 
 
 ## 7. Logging User by comparing jwt stored in db
+
+In this branch here we are setting up the login process by following these steps.
+ 1. First make a static function named as **Users.statics.login** in *User.js* in user model. *(Users.js)*.
+ 2. Update the **login_post** method in the *authController.js* for setting up proper login access to the user who is already registered with a valid email.
