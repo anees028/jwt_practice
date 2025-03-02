@@ -17,9 +17,9 @@
 <%- include('partials/footer'); -%>
 
 <script>
-  const form = document.querySelector('form');
+  const form = document.querySelector("form");
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // get values
@@ -27,20 +27,17 @@
     const password = form.password.value;
     const username = form.username.value;
 
-    try{
-
-      const res = await fetch('/signup', {
-        method: 'POST', 
+    try {
+      const res = await fetch("/signup", {
+        method: "POST",
         body: JSON.stringify({ email, username, password }),
-        headers: {'Content-Type': 'application/json'}
-      })  
+        headers: { "Content-Type": "application/json" },
+      });
 
-      console.log(res.body)
-
-    }catch(error){
-      console.log(error)
+      console.log(res.body);
+    } catch (error) {
+      console.log(error);
     }
-
 
     console.log(email, password);
   });
