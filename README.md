@@ -51,3 +51,7 @@ In this branch here we are setting up the login process by following these steps
 
 ## 8. Protecting Routes for authentication users
 For this protection of routes. We added a **authMiddleware.js** middleware file and made a method for varification of existed token with Secret key. And then it will move to the given url after verification.
+
+
+## 9. Logout users (By removing cookie)
+For logout, we have to remove or replace the cookies by making new get request method.
