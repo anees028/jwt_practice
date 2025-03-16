@@ -4,7 +4,10 @@
 ### Start this project with a following commands.
 
 ## 1. Setting up project files
-Install the node modules using **npm i** with in a project folder.  
+Install the node modules using the following command with in a project folder.
+
+```npm install```
+
 You can setup the mongodb first for setting up the database for storage and using within entire project.
 
 After setting up the db you can add your connection string from MongoDB in the .env file of this project to start and access the database.
@@ -21,9 +24,10 @@ After that here are the steps for learning and setting up jwt (Json web token) w
 
 ## 4. Managing cookies -> 4th Branch
 
-1.1 Store the cookies here in the local storage.
-1.2 Install the cookies parser inorder to manage the cookies automatically.   (npm install cookie-parser)
+ 1. Store the cookies here in the local storage.
+ 2. Install the cookies parser inorder to manage the cookies automatically.   ()
 
+```npm install cookie-parser```
 
 ## 5. JWT Implementation -> 5th Branch
 
@@ -51,3 +55,12 @@ In this branch here we are setting up the login process by following these steps
 
 ## 8. Protecting Routes for authentication users
 For this protection of routes. We added a **authMiddleware.js** middleware file and made a method for varification of existed token with Secret key. And then it will move to the given url after verification.
+
+
+## 9. Logout users (By removing cookie)
+For logout, we have to remove or replace the cookies by making new get request method.
+
+
+## 10. Check the current user with JWT..
+ 1. For this branch we arote *checkUser* method for checking for every *GET* request from client. From making this we can access the token data within the views and use for our purpose. 
+ 2. After this we have applied conditional rendering for the views based on the user token stored. 
