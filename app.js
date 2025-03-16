@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const dotenv = require("dotenv");
 const cookieParser = require('cookie-parser');
-const { requireAuth } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
 dotenv.config()
 
@@ -29,6 +29,10 @@ mongoose.connect(dbURI)
 
 
 // routes
+
+// Apply the Check user for every routes for below line.
+app.get('*', checkUser);
+
 app.get('/', (req, res) => res.render('home'));
 
 // I have added middleware for authentication purpose.
