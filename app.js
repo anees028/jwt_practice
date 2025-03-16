@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const dotenv = require("dotenv");
 const cookieParser = require('cookie-parser');
+const { requireAuth } = require('./middleware/authMiddleware');
 
 dotenv.config()
 
@@ -29,7 +30,9 @@ mongoose.connect(dbURI)
 
 // routes
 app.get('/', (req, res) => res.render('home'));
-app.get('/smoothies', (req, res) => res.render('smoothies'));
+
+// I have added middleware for authentication purpose.
+app.get('/smoothies', requireAuth , (req, res) => res.render('smoothies'));
 app.use(authRoutes);
 
 
